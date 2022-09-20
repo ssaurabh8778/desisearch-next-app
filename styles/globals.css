@@ -14,3 +14,12 @@ a {
 * {
     box-sizing: border-box;
 }
+
+body {
+    background: #efefef;
+}
+
+.gsc-control-cse {
+    background-color: transparent !important;
+    border: none !important;
+}
