@@ -1,25 +1,141 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 100%, 0.1);
+    border-radius: 02px 2px 2px 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 0%, 0.3);
+    border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: hsla(0, 0%, 0%, 0.4);
+}
+
 html,
 body {
-    padding: 0;
-    margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background: url("https://source.unsplash.com/1920x1080/?monument,india");
+}
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 }
 
 a {
     color: inherit;
     text-decoration: none;
 }
-
-* {
-    box-sizing: border-box;
+button {
+    cursor: pointer;
 }
 
-body {
-    background: #efefef;
+.gcse {
+    max-width: 750px;
+    margin-inline: auto;
+    color: #fff;
 }
+
+#___gcse_0 form.gsc-search-box {
+    background: rgba(255, 255, 255, 0.15);
+    /* border: 1px solid #ccc; */
+    /* border-radius: 2px; */
+    width: 100%;
+    margin: 0 0 2% 0;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
+    display: block;
+    padding: 4px 12px;
+    backdrop-filter: blur(20px);
+}
+
+div.gsc-input-box {
+    border: none;
+    background: transparent;
+}
+
+input.gsc-input {
+    background: transparent;
+    color: inherit;
+    font-size: 1.25em;
+    background: transparent !important;
+    /* background-repeat: no-repeat; */
+}
+
+/* input.gsc-input:empty {
+    background: url("../assets/Search.png") left center no-repeat !important;
+} */
+
+/* input.gsc-input:not(:empty) {
+    background: transparent !important;
+} */
 
 .gsc-control-cse {
     background-color: transparent !important;
     border: none !important;
+}
+
+.gsc-wrapper {
+    background-color: hsla(0, 0%, 100%, 0.4) !important;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
+    max-height: 50vh;
+    border-radius: 2px;
+    overflow-y: auto;
+    transition: height 300ms ease-in-out;
+}
+
+.gsc-results {
+    background-color: transparent !important;
+}
+
+.gsc-adBlock {
+    height: 0 !important;
+    opacity: 0;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+}
+
+.gsc-above-wrapper-area {
+    border: none !important;
+}
+.gsc-webResult.gsc-result {
+    background: transparent !important;
+    border: none !important;
+    padding: 1rem !important;
+}
+
+.gsc-webResult.gsc-result:hover {
+    background: hsla(0, 0%, 100%, 0.6) !important;
 }

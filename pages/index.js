@@ -15,10 +15,13 @@ export default function Home() {
 
             <Script
                 id="search-engine"
-                src="https://cse.google.com/cse.js?cx=a1f1ed19fbcdf4d30"
+                src="https://cse.google.com/cse.js?cx=f01b910a83b574d5c"
             ></Script>
             <Image src={logo} alt="logo" className={styles.logo} />
-            <div className="gcse-search"></div>
+            <div className="gcse">
+                <div className="gcse-searchbox"></div>
+                <div className="gcse-searchresults"></div>
+            </div>
         </>
     );
 }
