@@ -26,7 +26,7 @@ const Weather = ({ className, ...props }) => {
             </span>
             <span className={styles.city}>{weather.name} </span>
             <span className={styles.weather}>
-                {weather.weather[0]?.description}
+                {weather?.weather && weather.weather[0]?.description}
             </span>
         </div>
     );
