@@ -3,6 +3,7 @@ import Script from "next/script";
 import Image from "next/future/image";
 import logo from "../public/logo.svg";
 import styles from "../styles/Home.module.css";
+import Todo from "../components/Todo";
 import Weather from "../components/Weather";
 
 export default function Home() {
@@ -18,8 +19,8 @@ export default function Home() {
                 id="search-engine"
                 src="https://cse.google.com/cse.js?cx=f01b910a83b574d5c"
             ></Script>
-
-            <Weather className="weather"></Weather>
+            <Todo />
+            <Weather />
             <Image src={logo} alt="logo" className={styles.logo} />
             <div className="gcse">
                 <div className="gcse-searchbox"></div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Weather.module.css";
-const Weather = ({ className, ...props }) => {
+const Weather = () => {
     const [weather, setWeather] = useState({});
     const getWeather = (lat, lon) => {
         fetch(
