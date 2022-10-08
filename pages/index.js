@@ -5,8 +5,18 @@ import logo from "../public/logo.svg";
 import styles from "../styles/Home.module.css";
 import Todo from "../components/Todo";
 import Weather from "../components/Weather";
+import { useEffect } from "react";
 
 export default function Home() {
+    useEffect(() => {
+        window.addEventListener("online", () => {
+            window.location.reload();
+        });
+        return () =>
+            window.removeEventListener("online", () => {
+                window.location.reload();
+            });
+    }, []);
     return (
         <>
             <Head>

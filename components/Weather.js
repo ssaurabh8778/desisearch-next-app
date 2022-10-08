@@ -22,7 +22,8 @@ const Weather = () => {
     return (
         <div className={styles.container}>
             <span className={styles.temp}>
-                {Math.round(weather.main?.temp - 273.15)}°
+                {weather?.main ? Math.round(weather.main?.temp - 273.15) : "<3"}
+                °
             </span>
             <span className={styles.city}>{weather.name} </span>
             <span className={styles.weather}>

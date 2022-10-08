@@ -47,14 +47,26 @@ const DeleteChecked = ({ color = "white", className = "" }) => (
 );
 
 const Todo = () => {
-    const [todoList, setTodoList] = useState([]);
+    const [todoList, setTodoList] = useState(() => {
+        if (typeof window !== "undefined") {
+            const savedTodos = localStorage.getItem("todos");
+            if (savedTodos) {
+                return JSON.parse(savedTodos);
+            }
+        }
+        return [];
+    });
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const dialogRef = useRef(null);
+
     const addTodo = (e) => {
         e.preventDefault();
+        if (!e.target.todo.value.trim()) {
+            return false;
+        }
         const newTodo = {
             id: getUniqueId(6),
-            todo: e.target.todo.value,
+            todo: e.target.todo.value.trim(),
             done: false,
         };
         setTodoList([...todoList, newTodo]);
@@ -78,7 +90,7 @@ const Todo = () => {
     };
 
     const checkAllTodos = () => {
-        console.log("Checking all todos");
+        // console.log("Checking all todos");
         setTodoList((list) =>
             list.map(({ todo, id }) => ({ todo, done: true, id }))
         );
@@ -94,6 +106,10 @@ const Todo = () => {
                 : setIsDialogOpen(false);
         });
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todoList));
+    }, [todoList]);
 
     return (
         <>
