@@ -4,7 +4,7 @@ const Weather = () => {
     const [weather, setWeather] = useState({});
     const getWeather = (lat, lon) => {
         fetch(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=fa486f1b70e748f065b1ce342ffd0ff7`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_WEATHER_TOKEN}`
         )
             .then((res) => res.json())
             .then((res) => {
