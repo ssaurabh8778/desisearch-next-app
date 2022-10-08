@@ -90,7 +90,6 @@ const Todo = () => {
     };
 
     const checkAllTodos = () => {
-        // console.log("Checking all todos");
         setTodoList((list) =>
             list.map(({ todo, id }) => ({ todo, done: true, id }))
         );

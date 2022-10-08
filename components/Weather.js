@@ -8,7 +8,6 @@ const Weather = () => {
         )
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
                 setWeather(res);
             })
             .catch((err) => console.log(err));
