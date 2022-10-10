@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import ShortUniqueId from "short-unique-id";
-
 import styles from "./Todo.module.css";
 
 const getUniqueId = (n) => new ShortUniqueId({ length: n })();
