@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./Weather.module.css";
 const Weather = () => {
     const [weather, setWeather] = useState({});
-    const fetchWeather = (lat, lon) => {
+    const fetchWeather = (lat = 28.6139, lon = 77.209) => {
+        // lat and lon defaults to new delhi
         fetch(
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_WEATHER_TOKEN}`
         )
@@ -14,9 +15,13 @@ const Weather = () => {
     };
     const getWeather = () => {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((pos) => {
-                fetchWeather(pos.coords.latitude, pos.coords.longitude);
-            });
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    console.log(pos);
+                    fetchWeather(pos.coords.latitude, pos.coords.longitude);
+                },
+                () => fetchWeather()
+            );
         }
     };
     useEffect(() => {
