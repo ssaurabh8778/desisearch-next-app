@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import ShortUniqueId from "short-unique-id";
 import defaultNewsBg from "../assets/default-news-bg.png";
-import styles from "./News.module.css";
+import styles from "/styles/News.module.css";
 
 const getUniqueId = (n) => new ShortUniqueId({ length: n })();
 const News = () => {

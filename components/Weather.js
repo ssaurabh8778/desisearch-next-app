@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Weather.module.css";
+import styles from "/styles/Weather.module.css";
 const Weather = () => {
     const [weather, setWeather] = useState({});
     const fetchWeather = (lat = 28.6139, lon = 77.209) => {
