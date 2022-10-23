@@ -17,7 +17,6 @@ const Weather = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (pos) => {
-                    console.log(pos);
                     fetchWeather(pos.coords.latitude, pos.coords.longitude);
                 },
                 () => fetchWeather()

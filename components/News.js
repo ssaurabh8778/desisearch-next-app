@@ -6,15 +6,16 @@ import styles from "./News.module.css";
 
 const getUniqueId = (n) => new ShortUniqueId({ length: n })();
 const News = () => {
-    const [news, setNews] = useState({});
+    const [news, setNews] = useState([]);
     const getNews = () => {
-        // console.log("fetching news");
-        fetch(
-            `https://newsapi.org/v2/top-headlines?country=in&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_NEWS_TOKEN}`
-        )
+        // https://newsapi.org/v2/top-headlines?country=in&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_NEWS_TOKEN}
+        // const apiUrl = `https://newsdata.io/api/1/news?apikey=${process.env.NEXT_PUBLIC_NEWS_TOKEN}&country=in`;
+        const apiUrl = `https://inshorts.deta.dev/news?category=national`;
+
+        fetch(apiUrl)
             .then((res) => res.json())
             .then((res) => {
-                setNews(res);
+                setNews(res.data);
                 // console.log(res);
             })
             .catch((err) => console.log(err));
@@ -26,23 +27,27 @@ const News = () => {
     return (
         <div className={styles.container}>
             <div className={styles.newsGrid}>
-                {news?.articles?.map(
-                    ({ title, description, url, urlToImage: imageUrl }) => {
+                {news?.map(
+                    ({
+                        title,
+                        author,
+                        content: description,
+                        url,
+                        readMoreUrl,
+                        imageUrl,
+                    }) => {
                         return (
                             <a
-                                href={url}
+                                href={readMoreUrl ? readMoreUrl : url}
                                 className={styles.news}
-                                // style={{ backgroundImage: `url(${imageUrl})` }}
                                 key={getUniqueId(6)}
                             >
                                 <span className={styles.newsTitle}>
-                                    {title}
+                                    {title} {author ? `— ${author}` : ""}
                                 </span>
 
                                 <img
-                                    src={
-                                        imageUrl ? imageUrl : defaultNewsBg.src
-                                    }
+                                    src={imageUrl ? imageUrl : defaultNewsBg}
                                     alt={description ? description : title}
                                     className={styles.newsImage}
                                 />

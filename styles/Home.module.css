@@ -8,3 +8,10 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
+.gcse {
+    width: 98%;
+    max-width: 750px;
+    margin-inline: auto;
+    color: #fff;
+    min-height: 40vh;
+}

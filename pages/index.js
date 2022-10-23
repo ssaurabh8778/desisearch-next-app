@@ -34,7 +34,7 @@ export default function Home() {
             <Todo />
             <Weather />
             <Image src={logo} alt="logo" className={styles.logo} />
-            <div className="gcse">
+            <div className={styles.gcse}>
                 <div className="gcse-searchbox"></div>
                 <div className="gcse-searchresults"></div>
             </div>

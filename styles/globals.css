@@ -44,8 +44,7 @@ body {
     position: relative;
     min-height: 100%;
     background: #232323;
-    background: url("https://source.unsplash.com/1920x1080/?monument,india")
-        no-repeat;
+    background: url("https://source.unsplash.com/1920x1080/?india") no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -87,13 +86,6 @@ img {
     font-weight: 700;
     border: none;
     border-radius: 999px;
-}
-
-.gcse {
-    width: 98%;
-    max-width: 750px;
-    margin-inline: auto;
-    color: #fff;
 }
 
 #___gcse_0 form.gsc-search-box {
